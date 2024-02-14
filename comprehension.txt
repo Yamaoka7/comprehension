@@ -1,0 +1,12 @@
+def is_happy(n):
+    seen = set()
+    while n != 1:
+        if n in seen:
+            return False
+        seen.add(n)
+        n = sum(int(digit)**2 for digit in str(n))
+    return True
+
+limit = 10
+happy_numbers = [num for num in range(1, limit + 1) if is_happy(num)]
+print("Happy numbers up to", limit, "are:", happy_numbers)
